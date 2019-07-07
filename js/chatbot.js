@@ -88,8 +88,9 @@ ChatBot.sendMessage = function () {
         //Only if the user entered a value
         if (chatInput.val()) {
             sendBtn.addClass("loading");
-            ChatBot.write(chatInput.val(), "me");
+            ChatBot.write(chatInput.val(), "me");//it's wriing the input but from me i.e this function takes who is speaking as a parameter
             //Sending the user line to the server using the POST method
+            //Perhaps try and understand POST methods better, I basially get hat it is perhaps posting an pbject and calling a funtion
             $.post(ChatBot.SERVER_PATH + "/chat", {"msg": chatInput.val()}, function (result) {
                 if (typeof result != "undefined" && "msg" in result) {
                     ChatBot.setAnimation(result.animation);
@@ -104,7 +105,7 @@ ChatBot.sendMessage = function () {
         }
     }
 };
-
+//is this atached to anything?? I am not too sure. I don't understand AJAx so well and perhaps this is not so good. '
 $.ajax("/test",{
     type: "POST",
     data: {"msg": "hello"},
